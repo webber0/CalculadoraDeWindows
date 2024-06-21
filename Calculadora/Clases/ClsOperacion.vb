@@ -2,14 +2,40 @@
     '-------------------------------------
     'Variables
     '-------------------------------------
-    Dim dblnumeroUno As Double
-    Dim dblnumeroDos As Double
-    Dim boolHayError As Boolean
-    Dim strOperador As String
+    Private dblnumeroUno As Double
+    Private dblnumeroDos As Double
+    Private dblResultado As Double
+    Private strOperador As String
 
     '-------------------------------------
-    'Propiedades de Lecutura/Escritura
+    'Constructor
     '-------------------------------------
+    Public Sub New(numeroUno As Double, numeroDos As Double, operador As String)
+        dblnumeroUno = numeroUno
+        dblnumeroDos = numeroDos
+        strOperador = operador
+    End Sub
+
+    '-------------------------------------
+    'Rutinas necesarias
+    '-------------------------------------
+
+    Public Overridable Sub calcular()
+
+    End Sub
+
+    '-------------------------------------
+    'Funciones
+    '-------------------------------------
+
+    Public Function retornarOperacion() As String
+        Return dblnumeroUno + strOperador + dblnumeroDos + "=" + dblResultado
+    End Function
+
+    '-------------------------------------
+    'Propiedades Publicas de Lectura/Escritura
+    '-------------------------------------
+
     Public Property NumeroUno() As Double
         Get
             Return dblnumeroUno
@@ -28,21 +54,12 @@
         End Set
     End Property
 
-    Public Property Operador() As String
+    Public Property Resultado() As Double
         Get
-            Return strOperador
+            Return dblResultado
         End Get
-        Set(ByVal value As String)
-            strOperador = value
-        End Set
-    End Property
-
-    Public Property HayError() As Boolean
-        Get
-            Return boolHayError
-        End Get
-        Set(ByVal value As Boolean)
-            boolHayError = value
+        Set(ByVal value As Double)
+            dblResultado = value
         End Set
     End Property
 End Class

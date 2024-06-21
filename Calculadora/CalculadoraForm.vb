@@ -2,7 +2,9 @@
     '-------------------------------------
     'Variables
     '-------------------------------------
-    Dim operacionActual As ClsOperacion
+    Dim dblnumeroUno As Double
+    Dim dblnumeroDos As Double
+    Dim objOperacionActual As ClsOperacion
 
     '-------------------------------------
     'Control de Eventos
@@ -48,7 +50,17 @@
     End Sub
 
     Private Sub btnSuma_Click(sender As Object, e As EventArgs) Handles btnSuma.Click
-        operacionActual.NumeroUno = Double.Parse(txtPantalla.Text)
+        dblnumeroUno = Double.Parse(txtPantalla.Text)
         txtPantalla.Clear()
+        objOperacionActual = New ClsOperacionSuma(dblnumeroUno, 0, "+")
+    End Sub
+
+    Private Sub btnIgual_Click(sender As Object, e As EventArgs) Handles btnIgual.Click
+        dblnumeroDos = Double.Parse(txtPantalla.Text)
+        txtPantalla.Clear()
+        objOperacionActual.NumeroDos = dblnumeroDos
+        objOperacionActual.calcular()
+        txtPantalla.Text = objOperacionActual.Resultado
+
     End Sub
 End Class

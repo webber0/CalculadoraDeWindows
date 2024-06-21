@@ -81,7 +81,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clases\ClsOperacion.vb" />
-    <Compile Include="Clases\ClsOperador.vb" />
+    <Compile Include="Clases\ClsOperacionDivision.vb" />
+    <Compile Include="Clases\ClsOperacionMultiplicacion.vb" />
+    <Compile Include="Clases\ClsOperacionResta.vb" />
+    <Compile Include="Clases\ClsOperacionSuma.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
