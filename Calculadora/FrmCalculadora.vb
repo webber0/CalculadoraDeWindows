@@ -6,6 +6,7 @@
     Dim dblnumeroDos As Double
     Dim dblnumero As Double 'Esto es mas que nada para el cambio de signo
     Dim objOperacionActual As ClsOperacion
+    Dim boolHabilitarComa As Boolean = True 'Para no escribir más de una vez la coma
 
     '-------------------------------------
     'Control de Eventos
@@ -52,6 +53,7 @@
 
     Private Sub btnSuma_Click(sender As Object, e As EventArgs) Handles btnSuma.Click
         dblnumeroUno = Double.Parse(txtPantalla.Text)
+        habilitarComa()
         txtPantalla.Clear()
         objOperacionActual = New ClsOperacionSuma(dblnumeroUno, 0, "+")
     End Sub
@@ -66,18 +68,21 @@
 
     Private Sub btnResta_Click(sender As Object, e As EventArgs) Handles btnResta.Click
         dblnumeroUno = Double.Parse(txtPantalla.Text)
+        habilitarComa()
         txtPantalla.Clear()
         objOperacionActual = New ClsOperacionResta(dblnumeroUno, 0, "-")
     End Sub
 
     Private Sub btnMultiplicacion_Click(sender As Object, e As EventArgs) Handles btnMultiplicacion.Click
         dblnumeroUno = Double.Parse(txtPantalla.Text)
+        habilitarComa()
         txtPantalla.Clear()
         objOperacionActual = New ClsOperacionMultiplicacion(dblnumeroUno, 0, "x")
     End Sub
 
     Private Sub btnDividir_Click(sender As Object, e As EventArgs) Handles btnDividir.Click
         dblnumeroUno = Double.Parse(txtPantalla.Text)
+        habilitarComa()
         txtPantalla.Clear()
         objOperacionActual = New ClsOperacionDivision(dblnumeroUno, 0, "/")
     End Sub
@@ -91,5 +96,16 @@
         dblnumero = Double.Parse(txtPantalla.Text)
         dblnumero *= -1
         txtPantalla.Text = dblnumero
+    End Sub
+
+    Private Sub btnComa_Click(sender As Object, e As EventArgs) Handles btnComa.Click
+        If (boolHabilitarComa) Then
+            txtPantalla.Text = txtPantalla.Text + ","
+        End If
+        boolHabilitarComa = False
+    End Sub
+
+    Private Sub habilitarComa()
+        boolHabilitarComa = True
     End Sub
 End Class
