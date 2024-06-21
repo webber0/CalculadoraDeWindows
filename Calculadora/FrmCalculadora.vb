@@ -7,10 +7,15 @@
     Dim dblnumero As Double 'Esto es mas que nada para el cambio de signo
     Dim objOperacionActual As ClsOperacion
     Dim boolHabilitarComa As Boolean = True 'Para no escribir más de una vez la coma
+    Dim objHistorial As ClsHistorialDeOperaciones
 
     '-------------------------------------
     'Control de Eventos
     '-------------------------------------
+    Private Sub FrmCalculadora_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        objHistorial = New ClsHistorialDeOperaciones()
+    End Sub
+
     Private Sub btnCero_Click(sender As Object, e As EventArgs) Handles btnCero.Click
         txtPantalla.Text = txtPantalla.Text + "0"
     End Sub
@@ -64,6 +69,7 @@
         objOperacionActual.NumeroDos = dblnumeroDos
         objOperacionActual.calcular()
         txtPantalla.Text = objOperacionActual.Resultado
+        objHistorial.agregarElemento(objOperacionActual)
     End Sub
 
     Private Sub btnResta_Click(sender As Object, e As EventArgs) Handles btnResta.Click
@@ -104,6 +110,10 @@
         End If
         boolHabilitarComa = False
     End Sub
+
+    '-------------------------------------
+    'Rutinas privadas
+    '-------------------------------------
 
     Private Sub habilitarComa()
         boolHabilitarComa = True
