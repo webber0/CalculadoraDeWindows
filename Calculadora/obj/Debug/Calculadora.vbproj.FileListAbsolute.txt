@@ -9,3 +9,4 @@ C:\Users\npompeo\Documents\GitHub\CalculadoraDeWindows\Calculadora\obj\Debug\Cal
 C:\Users\npompeo\Documents\GitHub\CalculadoraDeWindows\Calculadora\obj\Debug\Calculadora.exe
 C:\Users\npompeo\Documents\GitHub\CalculadoraDeWindows\Calculadora\obj\Debug\Calculadora.xml
 C:\Users\npompeo\Documents\GitHub\CalculadoraDeWindows\Calculadora\obj\Debug\Calculadora.pdb
+C:\Users\npompeo\Documents\GitHub\CalculadoraDeWindows\Calculadora\obj\Debug\Calculadora.CalculadoraForm.resources
