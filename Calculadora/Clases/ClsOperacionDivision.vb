@@ -5,4 +5,8 @@
         MyBase.New(numeroUno, numeroDos, operador)
     End Sub
 
+    Public Overrides Sub calcular()
+        Resultado = NumeroUno / NumeroDos
+    End Sub
+
 End Class

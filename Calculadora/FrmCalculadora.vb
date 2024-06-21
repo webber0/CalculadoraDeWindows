@@ -1,9 +1,10 @@
-﻿Public Class CalculadoraForm
+﻿Public Class FrmCalculadora
     '-------------------------------------
     'Variables
     '-------------------------------------
     Dim dblnumeroUno As Double
     Dim dblnumeroDos As Double
+    Dim dblnumero As Double 'Esto es mas que nada para el cambio de signo
     Dim objOperacionActual As ClsOperacion
 
     '-------------------------------------
@@ -61,6 +62,34 @@
         objOperacionActual.NumeroDos = dblnumeroDos
         objOperacionActual.calcular()
         txtPantalla.Text = objOperacionActual.Resultado
+    End Sub
 
+    Private Sub btnResta_Click(sender As Object, e As EventArgs) Handles btnResta.Click
+        dblnumeroUno = Double.Parse(txtPantalla.Text)
+        txtPantalla.Clear()
+        objOperacionActual = New ClsOperacionResta(dblnumeroUno, 0, "-")
+    End Sub
+
+    Private Sub btnMultiplicacion_Click(sender As Object, e As EventArgs) Handles btnMultiplicacion.Click
+        dblnumeroUno = Double.Parse(txtPantalla.Text)
+        txtPantalla.Clear()
+        objOperacionActual = New ClsOperacionMultiplicacion(dblnumeroUno, 0, "x")
+    End Sub
+
+    Private Sub btnDividir_Click(sender As Object, e As EventArgs) Handles btnDividir.Click
+        dblnumeroUno = Double.Parse(txtPantalla.Text)
+        txtPantalla.Clear()
+        objOperacionActual = New ClsOperacionDivision(dblnumeroUno, 0, "/")
+    End Sub
+
+    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        txtPantalla.Clear()
+
+    End Sub
+
+    Private Sub btnCambiarSigno_Click(sender As Object, e As EventArgs) Handles btnCambiarSigno.Click
+        dblnumero = Double.Parse(txtPantalla.Text)
+        dblnumero *= -1
+        txtPantalla.Text = dblnumero
     End Sub
 End Class

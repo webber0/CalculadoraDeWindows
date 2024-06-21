@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class CalculadoraForm
+Partial Class FrmCalculadora
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -225,7 +225,7 @@ Partial Class CalculadoraForm
         Me.txtPantalla.TabIndex = 21
         Me.txtPantalla.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'CalculadoraForm
+        'FrmCalculadora
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -250,7 +250,7 @@ Partial Class CalculadoraForm
         Me.Controls.Add(Me.btnNueve)
         Me.Controls.Add(Me.btnOcho)
         Me.Controls.Add(Me.btnSiete)
-        Me.Name = "CalculadoraForm"
+        Me.Name = "FrmCalculadora"
         Me.Text = "Calculadora"
         Me.ResumeLayout(False)
         Me.PerformLayout()
