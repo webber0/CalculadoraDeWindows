@@ -8,10 +8,14 @@
         lstOperacion.Add(o)
     End Sub
 
-    Public Sub mostrarElemetos()
+    Public Sub mostrarElementos()
         For Each o In lstOperacion
             o.retornarOperacion()
         Next
     End Sub
+
+    Public Function obtenerLista() As List(Of ClsOperacion)
+        Return lstOperacion
+    End Function
 
 End Class

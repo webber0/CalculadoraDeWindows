@@ -29,7 +29,8 @@
     '-------------------------------------
 
     Public Function retornarOperacion() As String
-        Return dblnumeroUno + strOperador + dblnumeroDos + "=" + dblResultado
+
+        Return dblnumeroUno.ToString + strOperador + dblnumeroDos.ToString + "=" + dblResultado.ToString + vbCrLf
     End Function
 
     '-------------------------------------

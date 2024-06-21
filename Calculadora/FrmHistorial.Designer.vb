@@ -22,28 +22,28 @@ Partial Class FrmHistorial
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.Lista = New System.Windows.Forms.ListBox()
+        Me.lstHistorial = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
-        'Lista
+        'lstHistorial
         '
-        Me.Lista.FormattingEnabled = True
-        Me.Lista.Location = New System.Drawing.Point(12, 12)
-        Me.Lista.Name = "Lista"
-        Me.Lista.Size = New System.Drawing.Size(184, 238)
-        Me.Lista.TabIndex = 0
+        Me.lstHistorial.FormattingEnabled = True
+        Me.lstHistorial.Location = New System.Drawing.Point(12, 12)
+        Me.lstHistorial.Name = "lstHistorial"
+        Me.lstHistorial.Size = New System.Drawing.Size(202, 238)
+        Me.lstHistorial.TabIndex = 0
         '
         'FrmHistorial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(206, 266)
-        Me.Controls.Add(Me.Lista)
+        Me.ClientSize = New System.Drawing.Size(226, 266)
+        Me.Controls.Add(Me.lstHistorial)
         Me.Name = "FrmHistorial"
         Me.Text = "Historial"
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents Lista As ListBox
+    Friend WithEvents lstHistorial As ListBox
 End Class

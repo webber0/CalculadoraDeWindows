@@ -111,6 +111,14 @@
         boolHabilitarComa = False
     End Sub
 
+    Private Sub btnHistorial_Click(sender As Object, e As EventArgs) Handles btnHistorial.Click
+        Dim frm As FrmHistorial = New FrmHistorial
+        For Each o In objHistorial.obtenerLista
+            frm.lstHistorial.Items.Add(o.retornarOperacion)
+        Next
+        frm.Show()
+    End Sub
+
     '-------------------------------------
     'Rutinas privadas
     '-------------------------------------
