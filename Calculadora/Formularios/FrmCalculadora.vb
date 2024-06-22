@@ -1,4 +1,6 @@
-﻿Public Class FrmCalculadora
+﻿Imports System.Data.SqlClient
+
+Public Class FrmCalculadora
     '-------------------------------------
     'Variables
     '-------------------------------------
@@ -8,12 +10,22 @@
     Dim objOperacionActual As ClsOperacion
     Dim boolHabilitarComa As Boolean = True 'Para no escribir más de una vez la coma
     Dim objHistorial As ClsHistorialDeOperaciones
+    Dim objConexion As SqlConnection
 
     '-------------------------------------
     'Control de Eventos
     '-------------------------------------
     Private Sub FrmCalculadora_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         objHistorial = New ClsHistorialDeOperaciones()
+        objConexion = New SqlConnection("Provider=ADO.net;Data Source=MS0036;Initial Catalog=HistorialEjecucion;User ID=sa; Password=Drowssap12;")
+
+        If objConexion IsNot Nothing Then
+            MsgBox("OBJ Creado")
+        End If
+
+        If objConexion.State.Equals(ConnectionState.Closed) Then
+
+        End If
     End Sub
 
     Private Sub btnCero_Click(sender As Object, e As EventArgs) Handles btnCero.Click
@@ -70,6 +82,7 @@
         objOperacionActual.calcular()
         txtPantalla.Text = objOperacionActual.Resultado
         objHistorial.agregarElemento(objOperacionActual)
+
     End Sub
 
     Private Sub btnResta_Click(sender As Object, e As EventArgs) Handles btnResta.Click
@@ -126,4 +139,6 @@
     Private Sub habilitarComa()
         boolHabilitarComa = True
     End Sub
+
+
 End Class
