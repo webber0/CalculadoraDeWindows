@@ -32,5 +32,5 @@ Requisitos:
 5. Presionar el botón =
 ## Diagramas
 ### Diagrama de Clases
-![Texto alternativo](‪./Diagramas/Diagrama de Clases.png "Título alternativo")
+![alt text](https://github.com/webber0/CalculadoraDeWindows/blob/main/Diagramas/Diagrama%20de%20Clases.png?raw=true)
 ### Diagrama de Arquitectura
