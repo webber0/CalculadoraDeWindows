@@ -21,7 +21,7 @@ Requisitos:
 ### Instalación
 1. Correr el script de creación de la base de datos ( *./Scripts Base de Datos/Scripts Master* )
 2. Correr el script de creación de la tabla de historial ( *./Scripts Base de Datos/Scripts HistorialEjecucion* )
-3. Configurar el archivo app.config con el Conection String correspondiente
+3. Configurar el archivo *Calculadora.exe.config* con el Conection String correspondiente
 4. Ejecutar el programa (*Calculadora.exe*)
 
 #### Uso
