@@ -90,7 +90,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\ClsBaseDeDatos.vb" />
-    <Compile Include="Clases\ClsHistorialDeOperaciones.vb" />
     <Compile Include="Formularios\FrmHistorial.Designer.vb">
       <DependentUpon>FrmHistorial.vb</DependentUpon>
     </Compile>

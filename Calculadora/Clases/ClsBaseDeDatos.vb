@@ -5,8 +5,6 @@ Public Class ClsBaseDeDatos
     'Variables
     '-------------------------------------
     Private myConn As SqlConnection
-    Private myReader As SqlDataReader
-    Private results As String
 
     '-------------------------------------
     'Constructor
@@ -21,7 +19,7 @@ Public Class ClsBaseDeDatos
     End Sub
 
     '-------------------------------------
-    'Constructor
+    'Metodos Publicos
     '-------------------------------------
 
     Public Sub connectToDatabase()
@@ -44,8 +42,6 @@ Public Class ClsBaseDeDatos
     Public Sub saveToDatabase(ByVal expresion As String)
         Try
             Dim sqlcommand = "INSERT INTO Historial values(GETDATE()" & "," & expresion.Replace("""", "") & ")"
-            'myCmd = myConn.CreateCommand
-            'myCmd.ExecuteNonQuery(sqlcommand, myConn.ConnectionString)
             Dim command As New SqlCommand(sqlcommand, myConn)
             Me.connectToDatabase()
             command.ExecuteNonQuery()
