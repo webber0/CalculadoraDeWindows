@@ -25,12 +25,16 @@ Requisitos:
 4. Ejecutar el programa (*Calculadora.exe*)
 
 #### Uso
+##### Uso de la calculadora
 1. Ejecutar el programa (*Calculadora.exe*)
 2. Digitar el primer número
-3. Seleccionar la operación a realizar
+3. Seleccionar la operación a realizar (+,-,x,%)
 4. Digitar el segundo número
 5. Presionar el botón =
+##### Recuperar la información del historial
+1. Ejecutar el programa (*Calculadora.exe*)
+2. Presionar el boton 'Historial'
+3. El sistema va a recuperar el historial completo de ejecuciones
 ## Diagramas
 ### Diagrama de Clases
 ![alt text](https://github.com/webber0/CalculadoraDeWindows/blob/main/Diagramas/Diagrama%20de%20Clases.png?raw=true)
-### Diagrama de Arquitectura
