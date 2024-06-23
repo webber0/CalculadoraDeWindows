@@ -22,28 +22,33 @@ Partial Class FrmHistorial
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.lstHistorial = New System.Windows.Forms.ListBox()
+        Me.dgvHistorial = New System.Windows.Forms.DataGridView()
+        CType(Me.dgvHistorial, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'lstHistorial
+        'dgvHistorial
         '
-        Me.lstHistorial.FormattingEnabled = True
-        Me.lstHistorial.Location = New System.Drawing.Point(12, 12)
-        Me.lstHistorial.Name = "lstHistorial"
-        Me.lstHistorial.Size = New System.Drawing.Size(202, 238)
-        Me.lstHistorial.TabIndex = 0
+        Me.dgvHistorial.AllowUserToAddRows = False
+        Me.dgvHistorial.AllowUserToDeleteRows = False
+        Me.dgvHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvHistorial.Location = New System.Drawing.Point(7, 9)
+        Me.dgvHistorial.Name = "dgvHistorial"
+        Me.dgvHistorial.ReadOnly = True
+        Me.dgvHistorial.Size = New System.Drawing.Size(248, 244)
+        Me.dgvHistorial.TabIndex = 0
         '
         'FrmHistorial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(226, 266)
-        Me.Controls.Add(Me.lstHistorial)
+        Me.ClientSize = New System.Drawing.Size(267, 268)
+        Me.Controls.Add(Me.dgvHistorial)
         Me.Name = "FrmHistorial"
         Me.Text = "Historial"
+        CType(Me.dgvHistorial, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents lstHistorial As ListBox
+    Friend WithEvents dgvHistorial As DataGridView
 End Class

@@ -1,4 +1,4 @@
-﻿Imports System.Data.SqlClient
+﻿
 
 Public Class FrmCalculadora
     '-------------------------------------
@@ -10,22 +10,18 @@ Public Class FrmCalculadora
     Dim objOperacionActual As ClsOperacion
     Dim boolHabilitarComa As Boolean = True 'Para no escribir más de una vez la coma
     Dim objHistorial As ClsHistorialDeOperaciones
-    Dim objConexion As SqlConnection
+    Dim objBaseDeDatos As ClsBaseDeDatos
+    Dim dtHistorial As DataTable
+
+
 
     '-------------------------------------
     'Control de Eventos
     '-------------------------------------
     Private Sub FrmCalculadora_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        objBaseDeDatos = New ClsBaseDeDatos("Data Source=MS0036;Initial Catalog=HistorialEjecucion;User ID=sa; Password=Drowssap12;")
+        'objBaseDeDatos.connectToDatabase()
         objHistorial = New ClsHistorialDeOperaciones()
-        objConexion = New SqlConnection("Provider=ADO.net;Data Source=MS0036;Initial Catalog=HistorialEjecucion;User ID=sa; Password=Drowssap12;")
-
-        If objConexion IsNot Nothing Then
-            MsgBox("OBJ Creado")
-        End If
-
-        If objConexion.State.Equals(ConnectionState.Closed) Then
-
-        End If
     End Sub
 
     Private Sub btnCero_Click(sender As Object, e As EventArgs) Handles btnCero.Click
@@ -82,6 +78,7 @@ Public Class FrmCalculadora
         objOperacionActual.calcular()
         txtPantalla.Text = objOperacionActual.Resultado
         objHistorial.agregarElemento(objOperacionActual)
+        objBaseDeDatos.saveToDatabase(objOperacionActual.retornarOperacion)
 
     End Sub
 
@@ -126,11 +123,14 @@ Public Class FrmCalculadora
 
     Private Sub btnHistorial_Click(sender As Object, e As EventArgs) Handles btnHistorial.Click
         Dim frm As FrmHistorial = New FrmHistorial
-        For Each o In objHistorial.obtenerLista
-            frm.lstHistorial.Items.Add(o.retornarOperacion)
-        Next
+        frm.dgvHistorial.DataSource = objBaseDeDatos.retriveFromDatabase
         frm.Show()
     End Sub
+
+    Private Sub FrmCalculadoraFormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        objBaseDeDatos.disconnectFromDatabase()
+    End Sub
+
 
     '-------------------------------------
     'Rutinas privadas
@@ -139,6 +139,8 @@ Public Class FrmCalculadora
     Private Sub habilitarComa()
         boolHabilitarComa = True
     End Sub
+
+
 
 
 End Class
