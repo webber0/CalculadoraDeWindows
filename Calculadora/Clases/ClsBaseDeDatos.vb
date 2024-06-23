@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Configuration
 Public Class ClsBaseDeDatos
     '-------------------------------------
     'Variables

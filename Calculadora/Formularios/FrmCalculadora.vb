@@ -1,4 +1,4 @@
-﻿
+﻿Imports System.Configuration
 
 Public Class FrmCalculadora
     '-------------------------------------
@@ -9,9 +9,8 @@ Public Class FrmCalculadora
     Dim dblnumero As Double 'Esto es mas que nada para el cambio de signo
     Dim objOperacionActual As ClsOperacion
     Dim boolHabilitarComa As Boolean = True 'Para no escribir más de una vez la coma
-    Dim objHistorial As ClsHistorialDeOperaciones
     Dim objBaseDeDatos As ClsBaseDeDatos
-    Dim dtHistorial As DataTable
+
 
 
 
@@ -19,9 +18,8 @@ Public Class FrmCalculadora
     'Control de Eventos
     '-------------------------------------
     Private Sub FrmCalculadora_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        objBaseDeDatos = New ClsBaseDeDatos("Data Source=MS0036;Initial Catalog=HistorialEjecucion;User ID=sa; Password=Drowssap12;")
-        'objBaseDeDatos.connectToDatabase()
-        objHistorial = New ClsHistorialDeOperaciones()
+        Dim conectionString As Object = ConfigurationManager.ConnectionStrings("DBHistorial").ToString()
+        objBaseDeDatos = New ClsBaseDeDatos(conectionString.ToString)
     End Sub
 
     Private Sub btnCero_Click(sender As Object, e As EventArgs) Handles btnCero.Click
@@ -77,7 +75,6 @@ Public Class FrmCalculadora
         objOperacionActual.NumeroDos = dblnumeroDos
         objOperacionActual.calcular()
         txtPantalla.Text = objOperacionActual.Resultado
-        objHistorial.agregarElemento(objOperacionActual)
         objBaseDeDatos.saveToDatabase(objOperacionActual.retornarOperacion)
 
     End Sub
@@ -139,8 +136,5 @@ Public Class FrmCalculadora
     Private Sub habilitarComa()
         boolHabilitarComa = True
     End Sub
-
-
-
 
 End Class
